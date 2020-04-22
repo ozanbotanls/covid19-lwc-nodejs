@@ -1,0 +1,14 @@
+<template>
+    <header>
+        <img src="https://www.labourstart.org/sars-cov-19.jpg" alt="Covid" />
+        <h2>World COVID-19 Figures</h2>
+    </header>
+    <main class="content">
+        <template if:true={isStateList}>
+            <my-country-list onnavigate={handleCountryClick}></my-country-list>
+        </template>
+        <template if:true={isStateDetails}>
+            <my-country-detail country-name={countryName}></my-country-detail>
+        </template>
+    </main>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="lds-hourglass"></div>
+    </template>
+    <template if:false={isLoading}>
+        <template if:true={countryDailyFigures}>
+            <div>
+                <canvas class="donut" lwc:dom="manual"></canvas>
+                <progress
+                    lwc:dom="manual"
+                    class="animationProgress"
+                    max="1"
+                    value="0"
+                    style="width: 100%;"
+                ></progress>
+            </div>
+        </template>
+    </template>
+</template>

@@ -1,0 +1,17 @@
+.content {
+    padding: 0 1rem;
+}
+header {
+    padding: 1rem;
+    display: flex;
+    color: #ffffff;
+    background: black;
+    box-shadow: 0 4px 3px rgba(1, 87, 155, 0.5);
+    align-items: center;
+}
+header img {
+    height: 5rem;
+}
+header h2 {
+    font-weight: 300;
+}
