@@ -23,7 +23,7 @@ export default class CountryDetail extends LightningElement {
             .getContext('2d');
         this.isLoading = true;
         // eslint-disable-next-line @lwc/lwc/no-async-operation
-        this.chart = setTimeout(() => new window.Chart(ctx, this.config), 1500);
+        this.chart = setTimeout(() => new window.Chart(ctx, this.config), 1000);
         this.chartjsInitialized = true;
         this.isLoading = false;
     }
