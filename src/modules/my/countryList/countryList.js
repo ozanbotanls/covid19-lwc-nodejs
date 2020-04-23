@@ -4,6 +4,7 @@ import { getCountryCodeByName } from 'data/countryService';
 
 export default class CountryList extends LightningElement {
     countries = [];
+    currentNavigationItem;
     get lastUpdated() {
         var today = new Date();
         var date =
@@ -42,5 +43,21 @@ export default class CountryList extends LightningElement {
         this.countries = this.allCountries.filter((country) =>
             country.name.toLowerCase().includes(inputCountry)
         );
+    }
+
+    get isWorldMode() {
+        return this.currentNavigationItem === 'World' ? true : false;
+    }
+
+    handleCategoryChange(event) {
+        if (event) {
+            if (this.currentNavigationItem !== event.detail) {
+                this.currentNavigationItem = event.detail;
+            } else {
+                return;
+            }
+        }
+        // locate the page at the top
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 }

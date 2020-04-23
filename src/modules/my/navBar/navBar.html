@@ -1,0 +1,26 @@
+<template>
+    <nav class="nav" role="navigation">
+        <ul class="nav__list">
+            <template for:each={navItems} for:item="navItem">
+                <li key={navItem}>
+                    <input
+                        id={navItem}
+                        type="checkbox"
+                        checked=""
+                        hidden="hidden"
+                    />
+                    <label for={navItem}>
+                        <a
+                            href="#"
+                            title={navItem}
+                            data-item={navItem}
+                            onclick={handleNavItemClick}
+                        >
+                            {navItem}
+                        </a>
+                    </label>
+                </li>
+            </template>
+        </ul>
+    </nav>
+</template>

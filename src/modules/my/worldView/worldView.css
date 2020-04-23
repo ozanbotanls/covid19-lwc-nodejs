@@ -1,0 +1,28 @@
+.world_section {
+    width: 100%;
+    display: flex;
+    font-size: 1rem;
+    /* justify-content: space-between; */
+    text-align: left;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: transparent;
+    border: 1px solid #dddbda;
+    align-items: center;
+    border-left: 3px solid;
+    border-radius: 0 0.5rem 0.5rem 0;
+    height: 175px;
+}
+
+.section_title {
+    margin-left: 1em;
+}
+
+.section_figure {
+    margin-left: 1em;
+}
+
+.section_figure .title {
+    font-weight: 600;
+    font-size: 2rem;
+}

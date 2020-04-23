@@ -72,6 +72,7 @@ export default class CountryDetail extends LightningElement {
                 ]
             },
             options: {
+                maintainAspectRatio: false,
                 title: {
                     display: true,
                     text: `COVID-19 Figures for ${this._countryName}`
@@ -95,8 +96,19 @@ export default class CountryDetail extends LightningElement {
                     intersect: false
                 },
                 hover: {
-                    mode: 'nearest',
+                    mode: 'point',
                     intersect: true
+                },
+                scales: {
+                    xAxes: [
+                        {
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return index % 3 === 1 ? value : '';
+                                }
+                            }
+                        }
+                    ]
                 }
             }
         };

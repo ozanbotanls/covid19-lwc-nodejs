@@ -14,3 +14,19 @@ module.exports.getAllCovidFigures = () =>
 module.exports.getCovidFiguresByCountry = (countryId) => {
     return countryFigures[countryId];
 };
+
+module.exports.getWorldTotal = () => {
+    let totalConfirmed = (totalDeath = totalRecovered = 0);
+    Object.keys(countryFigures).forEach((countryName) => {
+        const countryData = this.getCovidFiguresByCountry(countryName);
+        const countryLatest = countryData[countryData.length - 1];
+        totalConfirmed += countryLatest.confirmed;
+        totalDeath += countryLatest.deaths;
+        totalRecovered += countryLatest.recovered;
+    });
+    return {
+        totalConfirmed: totalConfirmed,
+        totalDeath: totalDeath,
+        totalRecovered: totalRecovered
+    };
+};

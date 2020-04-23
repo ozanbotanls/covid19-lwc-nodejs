@@ -1,25 +1,32 @@
 <template>
     <div class="list">
-        <input
-            type="search"
-            placeholder="Search countries..."
-            oninput={handlesearchCountry}
-        />
-        <template for:each={countries} for:item="country" for:index="index">
-            <a
-                key={country.name}
-                class="country"
-                data-country={country.name}
-                onclick={handleSelectCountry}
-            >
-                <div class="country-flag">
-                    <img src={country.flagSrc} />
-                </div>
-                <div class="country-main">
-                    <p class="title">{country.name}</p>
-                    <p class="icon time">Last Updated: {lastUpdated}</p>
-                </div>
-            </a>
+        <my-nav-bar oncategorychange={handleCategoryChange}></my-nav-bar>
+        <template if:true={isWorldMode}>
+            <!-- handle world mode view -->
+            <my-world-view></my-world-view>
+        </template>
+        <template if:false={isWorldMode}>
+            <input
+                type="search"
+                placeholder="Search countries..."
+                oninput={handlesearchCountry}
+            />
+            <template for:each={countries} for:item="country" for:index="index">
+                <a
+                    key={country.name}
+                    class="country"
+                    data-country={country.name}
+                    onclick={handleSelectCountry}
+                >
+                    <div class="country-flag">
+                        <img src={country.flagSrc} />
+                    </div>
+                    <div class="country-main">
+                        <p class="title">{country.name}</p>
+                        <p class="icon time">Last Updated: {lastUpdated}</p>
+                    </div>
+                </a>
+            </template>
         </template>
     </div>
 </template>
