@@ -16,6 +16,7 @@
             <span style="margin-left: 0.75em;">
                 <label for="sort">Sort by: </label>
                 <select onchange={updateColumnSorting} id="sort">
+                    <option value="name">Name</option>
                     <option value="totalConfirmed">Confirmed</option>
                     <option value="totalDeath">Death</option>
                     <option value="totalRecovered">Recovered</option>
@@ -37,11 +38,13 @@
                         <p class="icon time" title="Last Updated">
                             {country.lastUpdated}
                         </p>
-                        <p class="icon death">{country.totalDeath} deaths</p>
-                        <p class="icon confirmed">
+                        <p class="icon death" title="Death Tolls">
+                            {country.totalDeath} deaths
+                        </p>
+                        <p class="icon confirmed" title="Confirmed Cases">
                             {country.totalConfirmed} confirmed
                         </p>
-                        <p class="icon recovered">
+                        <p class="icon recovered" title="Recovered">
                             {country.totalRecovered} recovered
                         </p>
                     </div>

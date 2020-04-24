@@ -59,7 +59,7 @@ export default class CountryList extends LightningElement {
 
     updateColumnSorting(event) {
         let fieldName = event.target.value;
-        let sortDirection = 'desc';
+        let sortDirection = fieldName === 'name' ? 'asc' : 'desc';
         this.sortData(fieldName, sortDirection);
     }
 
