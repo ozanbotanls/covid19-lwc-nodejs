@@ -53,6 +53,11 @@ export default class CountryList extends LightningElement {
                 return;
             }
         }
+
+        if (this.currentNavigationItem === 'World') {
+            window.scrollTo(0, document.body.scrollHeight);
+            return;
+        }
         // locate the page at the top
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     }

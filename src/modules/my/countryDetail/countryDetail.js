@@ -26,6 +26,7 @@ export default class CountryDetail extends LightningElement {
         this.chart = setTimeout(() => new window.Chart(ctx, this.config), 600);
         this.chartjsInitialized = true;
         this.isLoading = false;
+        window.scrollTo(0, document.body.scrollHeight);
     }
 
     // setting up chart.js config when the component rendered

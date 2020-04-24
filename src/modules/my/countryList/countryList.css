@@ -37,7 +37,7 @@
 .country .icon.time {
     color: #039be5;
     background-image: url(https://developer.salesforce.com/files/js-dev/icons/clock.svg);
-    margin-top: 0.2rem;
+    margin-top: 0rem;
 }
 .country .icon.death {
     color: black;
@@ -62,15 +62,16 @@ input {
     padding: 0 1rem 0 0.75rem;
     line-height: 1.5rem;
     font-size: 1rem;
-    width: 10.5rem;
+    width: 9rem;
 }
 .country-flag {
-    display: flex;
-    justify-content: end;
+    /* display: flex;
+    justify-content: end; */
 }
 .country-flag > img {
-    border-radius: 20%;
+    border-radius: 30%;
     height: 5.5rem;
+    margin-left: 0.5em;
 }
 
 .country-main {

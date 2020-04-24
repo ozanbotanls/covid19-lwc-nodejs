@@ -9,11 +9,11 @@
             <!-- instant search box -->
             <input
                 type="search"
-                placeholder="Search countries..."
+                placeholder="search..."
                 oninput={handleSearchCountry}
             />
             <!-- sorting option comes here -->
-            <span style="margin-left: 0.75em;">
+            <span style="margin-left: 0.5em;">
                 <label for="sort">Sort by: </label>
                 <select onchange={updateColumnSorting} id="sort">
                     <option value="name">Name</option>
@@ -32,12 +32,12 @@
                 >
                     <div class="country-flag">
                         <img src={country.flagSrc} />
-                    </div>
-                    <div class="country-main">
-                        <p class="title">{country.name}</p>
                         <p class="icon time" title="Last Updated">
                             {country.lastUpdated}
                         </p>
+                    </div>
+                    <div class="country-main">
+                        <p class="title">{country.name}</p>
                         <p class="icon death" title="Death Tolls">
                             {country.totalDeath} deaths
                         </p>
