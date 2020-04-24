@@ -1,11 +1,7 @@
-# covid-lwc
+# covid19-lwc-nodejs
 
-Here will be some information about the app.
+This is a Node.js app that leverages Salesforce's Lightning Web Components (LWC) to show world-wide COVID-19 figures.
 
-## How to start?
+live site runs on Heroku: https://covid-figures--nodejs-lwc.herokuapp.com/
 
-Start simple by running `yarn watch` (or `npm run watch`, if you set up the project with `npm`). This will start the project with a local development server.
-
-The source files are located in the [`src`](./src) folder. All web components are within the [`src/modules`](./src/modules) folder. The folder hierarchy also represents the naming structure of the web components.
-
-Find more information on the main repo on [GitHub](https://github.com/muenzpraeger/create-lwc-app).
+p.s. Data used relies on Johns Hopkins University Center for Systems Science and Engineering and this app uses the following: https://github.com/pomber/covid19#user-content-adding-your-project-to-the-list
