@@ -1,16 +1,18 @@
 <template>
     <div class="world_section">
         <div class="section_title">
-            <h3>Total Confirmed Cases</h3>
+            <h3>Total Confirmed:</h3>
         </div>
         <br />
         <div class="section_figure">
-            <p class="title">{worldTotals.totalConfirmed}</p>
+            <p class="title" style="color: red;">
+                {worldTotals.totalConfirmed}
+            </p>
         </div>
     </div>
     <div class="world_section">
         <div class="section_title">
-            <h3>Total Death Tolls</h3>
+            <h3>Total Death Tolls:</h3>
         </div>
         <br />
         <div class="section_figure">
@@ -19,11 +21,13 @@
     </div>
     <div class="world_section">
         <div class="section_title">
-            <h3>Total Recovered</h3>
+            <h3>Total Recovered:</h3>
         </div>
         <br />
         <div class="section_figure">
-            <p class="title">{worldTotals.totalRecovered}</p>
+            <p class="title" style="color: green;">
+                {worldTotals.totalRecovered}
+            </p>
         </div>
     </div>
 </template>

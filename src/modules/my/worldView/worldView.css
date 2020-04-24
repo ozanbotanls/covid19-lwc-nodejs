@@ -3,7 +3,7 @@
     display: flex;
     font-size: 1rem;
     /* justify-content: space-between; */
-    text-align: left;
+    text-align: center;
     margin: 1rem 0;
     padding: 1rem;
     background-color: transparent;
@@ -11,7 +11,7 @@
     align-items: center;
     border-left: 3px solid;
     border-radius: 0 0.5rem 0.5rem 0;
-    height: 175px;
+    height: 130px;
 }
 
 .section_title {
