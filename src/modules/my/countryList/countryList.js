@@ -1,28 +1,23 @@
 import { LightningElement } from 'lwc';
-import { getAllCovidFigures } from 'data/covidService';
+import { getAllCovidFigures, getTotalsByCountry } from 'data/covidService';
 import { getCountryCodeByName } from 'data/countryService';
 
 export default class CountryList extends LightningElement {
     countries = [];
     currentNavigationItem;
-    get lastUpdated() {
-        var today = new Date();
-        var date =
-            today.getDate() +
-            '-' +
-            (today.getMonth() + 1) +
-            '-' +
-            today.getFullYear();
-        return date;
-    }
     connectedCallback() {
         getAllCovidFigures().then((data) => {
             const countryData = [];
             data.forEach((name) => {
                 let code = getCountryCodeByName(name);
+                let countryTotals = getTotalsByCountry(name);
                 countryData.push({
                     name: name,
-                    flagSrc: `https://www.countryflags.io/${code}/shiny/64.png`
+                    flagSrc: `https://www.countryflags.io/${code}/shiny/64.png`,
+                    totalConfirmed: countryTotals.confirmed,
+                    totalDeath: countryTotals.deaths,
+                    totalRecovered: countryTotals.recovered,
+                    lastUpdated: countryTotals.date
                 });
             });
 
@@ -35,10 +30,11 @@ export default class CountryList extends LightningElement {
         const navigateEvent = new CustomEvent('navigate', {
             detail: countryName
         });
+        // dispatch to app.js for it to pass this through countryDetails component
         this.dispatchEvent(navigateEvent);
     }
 
-    handlesearchCountry(event) {
+    handleSearchCountry(event) {
         let inputCountry = event.target.value.toLowerCase();
         this.countries = this.allCountries.filter((country) =>
             country.name.toLowerCase().includes(inputCountry)
@@ -59,5 +55,24 @@ export default class CountryList extends LightningElement {
         }
         // locate the page at the top
         document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+
+    updateColumnSorting(event) {
+        let fieldName = event.target.value;
+        let sortDirection = 'desc';
+        this.sortData(fieldName, sortDirection);
+    }
+
+    sortData(fieldName, sortDirection) {
+        var data = JSON.parse(JSON.stringify(this.countries));
+        //function to return the value stored in the field
+        var key = (a) => a[fieldName];
+        var reverse = sortDirection === 'asc' ? 1 : -1;
+        data.sort((a, b) => {
+            let valueA = key(a); // ? key(a).toLowerCase() : '';
+            let valueB = key(b); // ? key(b).toLowerCase() : '';
+            return reverse * ((valueA > valueB) - (valueB > valueA));
+        });
+        this.countries = data;
     }
 }

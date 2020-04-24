@@ -6,11 +6,22 @@
             <my-world-view></my-world-view>
         </template>
         <template if:false={isWorldMode}>
+            <!-- instant search box -->
             <input
                 type="search"
                 placeholder="Search countries..."
-                oninput={handlesearchCountry}
+                oninput={handleSearchCountry}
             />
+            <!-- sorting option comes here -->
+            <span style="margin-left: 0.75em;">
+                <label for="sort">Sort by: </label>
+                <select onchange={updateColumnSorting} id="sort">
+                    <option value="totalConfirmed">Confirmed</option>
+                    <option value="totalDeath">Death</option>
+                    <option value="totalRecovered">Recovered</option>
+                </select>
+            </span>
+
             <template for:each={countries} for:item="country" for:index="index">
                 <a
                     key={country.name}
@@ -23,7 +34,16 @@
                     </div>
                     <div class="country-main">
                         <p class="title">{country.name}</p>
-                        <p class="icon time">Last Updated: {lastUpdated}</p>
+                        <p class="icon time" title="Last Updated">
+                            {country.lastUpdated}
+                        </p>
+                        <p class="icon death">{country.totalDeath} deaths</p>
+                        <p class="icon confirmed">
+                            {country.totalConfirmed} confirmed
+                        </p>
+                        <p class="icon recovered">
+                            {country.totalRecovered} recovered
+                        </p>
                     </div>
                 </a>
             </template>

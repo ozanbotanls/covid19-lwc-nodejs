@@ -18,8 +18,8 @@ module.exports.getCovidFiguresByCountry = (countryId) => {
 module.exports.getWorldTotal = () => {
     let totalConfirmed = (totalDeath = totalRecovered = 0);
     Object.keys(countryFigures).forEach((countryName) => {
-        const countryData = this.getCovidFiguresByCountry(countryName);
-        const countryLatest = countryData[countryData.length - 1];
+        // latest date holds the up-to-date figures per country
+        const countryLatest = this.getTotalsByCountry(countryName);
         totalConfirmed += countryLatest.confirmed;
         totalDeath += countryLatest.deaths;
         totalRecovered += countryLatest.recovered;
@@ -29,4 +29,9 @@ module.exports.getWorldTotal = () => {
         totalDeath: totalDeath,
         totalRecovered: totalRecovered
     };
+};
+
+module.exports.getTotalsByCountry = (countryName) => {
+    const countryData = this.getCovidFiguresByCountry(countryName);
+    return countryData[countryData.length - 1];
 };

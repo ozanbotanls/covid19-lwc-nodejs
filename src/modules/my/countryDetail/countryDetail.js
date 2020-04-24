@@ -19,23 +19,23 @@ export default class CountryDetail extends LightningElement {
     async loadChartJs() {
         await require('chart.js');
         const ctx = this.template
-            .querySelector('canvas.donut')
+            .querySelector('canvas.chartCanvas')
             .getContext('2d');
         this.isLoading = true;
         // eslint-disable-next-line @lwc/lwc/no-async-operation
-        this.chart = setTimeout(() => new window.Chart(ctx, this.config), 1000);
+        this.chart = setTimeout(() => new window.Chart(ctx, this.config), 600);
         this.chartjsInitialized = true;
         this.isLoading = false;
     }
 
     // setting up chart.js config when the component rendered
     renderedCallback() {
-        this.progress = this.template.querySelector(
-            'progress.animationProgress'
-        );
         if (this.chartjsInitialized) {
             return;
         }
+        this.progress = this.template.querySelector(
+            'progress.animationProgress'
+        );
         const that = this;
         this.config = {
             type: 'line',

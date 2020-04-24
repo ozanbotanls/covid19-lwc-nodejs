@@ -1,15 +1,9 @@
 <template>
-    <nav class="nav" role="navigation">
-        <ul class="nav__list">
-            <template for:each={navItems} for:item="navItem">
-                <li key={navItem}>
-                    <input
-                        id={navItem}
-                        type="checkbox"
-                        checked=""
-                        hidden="hidden"
-                    />
-                    <label for={navItem}>
+    <div class="nav">
+        <div class="container">
+            <ul>
+                <template for:each={navItems} for:item="navItem">
+                    <li key={navItem}>
                         <a
                             href="#"
                             title={navItem}
@@ -18,9 +12,9 @@
                         >
                             {navItem}
                         </a>
-                    </label>
-                </li>
-            </template>
-        </ul>
-    </nav>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
 </template>

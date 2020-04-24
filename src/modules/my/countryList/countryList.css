@@ -37,29 +37,40 @@
 .country .icon.time {
     color: #039be5;
     background-image: url(https://developer.salesforce.com/files/js-dev/icons/clock.svg);
-    margin-top: 0.6rem;
+    margin-top: 0.2rem;
 }
-.country .icon.room {
-    background-image: url(https://developer.salesforce.com/files/js-dev/icons/location.svg);
+.country .icon.death {
+    color: black;
+    background-image: url(/resources/slds/icons/utility/sentiment_negative_60.png);
     margin-top: 0.4rem;
+}
+.country .icon.recovered {
+    color: green;
+    background-image: url(/resources/slds/icons/utility/smiley_and_people_60.png);
+    margin-top: 0.2rem;
+}
+.country .icon.confirmed {
+    color: red;
+    background-image: url(/resources/slds/icons/utility/sentiment_neutral_60.png);
+    margin-top: 0.2rem;
 }
 input {
     border: 1px solid #dddbda;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     transition: border 0.1s linear, background-color 0.1s linear;
     display: inline-block;
     padding: 0 1rem 0 0.75rem;
-    line-height: 2rem;
+    line-height: 1.5rem;
     font-size: 1rem;
-    width: 15rem;
+    width: 10.5rem;
 }
 .country-flag {
     display: flex;
     justify-content: end;
 }
 .country-flag > img {
-    border-radius: 30%;
-    height: 3.5rem;
+    border-radius: 20%;
+    height: 5.5rem;
 }
 
 .country-main {
