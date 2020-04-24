@@ -4,4 +4,6 @@ This is a Node.js app that leverages Salesforce's Lightning Web Components (LWC)
 
 live site runs on Heroku: https://covid-figures--nodejs-lwc.herokuapp.com/
 
+In countryDetail component, Chart.js is used to visualize how the virus has spread for each country over time.
+
 p.s. Data used relies on Johns Hopkins University Center for Systems Science and Engineering and this app uses the following: https://github.com/pomber/covid19#user-content-adding-your-project-to-the-list
