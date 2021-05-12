@@ -6,7 +6,7 @@
     "bugs": "https://github.com/Ozan Botan/covid-lwc/issues",
     "dependencies": {
         "@salesforce-ux/design-system": "^2.11.8",
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.9.4",
         "compression": "^1.7.4",
         "express": "^4.17.1",
         "helmet": "^3.22.0",
